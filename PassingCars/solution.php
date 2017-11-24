@@ -8,23 +8,24 @@
 
 function solution(array $A):int {
     // write your code in PHP7.0
-    $totalArraySum = 0;
-	foreach($A as $car){
-		$totalArraySum+=$car;
+    $totalCarsGoingWest = 0;
+	foreach($A as $carGoingWest){
+		$totalCarsGoingWest += $carGoingWest; // because going east would be 0
 	}
 
-	$passed = 0;
-    $solution = 0;
-    foreach($A as $car){
-        if($car){
-            $passed++;
+	$passedWest = 0;
+    $passingCars = 0;
+
+    foreach($A as $carGoingWest){
+        if($carGoingWest){
+            $passedWest++;
             continue;
         }
-        $solution += ($totalArraySum - $passed);
-        if($solution>1000000000) return -1;
+		$passingCars += ($totalCarsGoingWest - $passingCars);
+        if($passingCars>1000000000) return -1;
 
     }
 
-    return $solution;
+    return $passingCars;
 
 }

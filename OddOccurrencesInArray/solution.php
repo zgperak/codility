@@ -13,15 +13,16 @@ function solution(array $A):int{
 	if($br==1)
 		return $A[0];
 
-	$arr = [];
+	$temporaryArray = [];
 
 	foreach ($A as $elem){
-		if(!isset($arr[$elem]))  $arr[$elem] = 0;
-		$arr[$elem]++;
+		if(!isset($temporaryArray[$elem]))  $temporaryArray[$elem] = 0;
+		$temporaryArray[$elem]++;
 	}
 
-	foreach ($arr as $elem=>$count){
+	foreach ($temporaryArray as $elem=>$count){
 		if($count%2!=0)
 			return $elem;
 	}
+
 }
