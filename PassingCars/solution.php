@@ -8,8 +8,12 @@
 
 function solution(array $A):int {
     // write your code in PHP7.0
-    $totalArraySum = array_sum($A);
-    $passed = 0;
+    $totalArraySum = 0;
+	foreach($A as $car){
+		$totalArraySum+=$car;
+	}
+
+	$passed = 0;
     $solution = 0;
     foreach($A as $car){
         if($car){

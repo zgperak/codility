@@ -7,15 +7,21 @@
  */
 
 function solution(array $A):int{
-    // write your code in PHP7.0
-    $br = count($A);
+	// write your code in PHP7.0
+	$br = count($A);
 
-    if($br==1)
-        return $A[0];
+	if($br==1)
+		return $A[0];
 
-    sort($A);
+	$arr = [];
 
-    for($i = 0; $i<$br; $i+=2)
-        if($A[$i]!=$A[$i+1])
-            return $A[$i];
+	foreach ($A as $elem){
+		if(!isset($arr[$elem]))  $arr[$elem] = 0;
+		$arr[$elem]++;
+	}
+
+	foreach ($arr as $elem=>$count){
+		if($count%2!=0)
+			return $elem;
+	}
 }
